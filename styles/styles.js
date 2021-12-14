@@ -17,7 +17,7 @@ export const styles = {
     radioImageContainer: {
         flex: 1,
         justifyContent: 'space-around',
-
+        alignItems: 'center',
     },
 
     radioImage: {

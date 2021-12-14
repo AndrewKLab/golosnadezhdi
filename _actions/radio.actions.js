@@ -5,6 +5,7 @@ import { httpConstants } from "../_constants";
 
 export const radioActions = {
     init,
+    close,
     play,
     pause,
     setHQRadio,
@@ -23,6 +24,19 @@ async function init() {
         var track = await TrackPlayer.getTrack(0)
 
         radioStore.setRadioPlayer(track)
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+async function close() {
+    try {
+        await TrackPlayer.destroy();
+        radioStore.setPlay(false);
+        radioStore.setQuality(false);
+        radioStore.setMute(false);
+        radioStore.setStreamType(false)
     } catch (error) {
         console.log(error)
     }
