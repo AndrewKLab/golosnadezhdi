@@ -10,7 +10,11 @@ import { radioActions } from "../_actions";
 const RadioScreen = ({ }) => {
 
     useEffect(() => {
-        radioActions.init()
+        radioActions.init();
+        return ()=>{
+            console.log('close')
+            radioActions.close();
+          }
     }, []);
 
     const social = [
@@ -37,9 +41,9 @@ const RadioScreen = ({ }) => {
                         style={styles.radioImage}
                         source={require('../assets/radio_circle.png')}
                     />
-                    <View>
-                        <Button disabled={!radioStore.stream_type} mode="contained" style={{ marginBottom: 8 }} color={'#3597cd'} onPress={() => radioActions.setStreamGolos()}>{'Прямой эфир'}</Button>
-                        <Button disabled={radioStore.stream_type} mode="contained" color={'#3597cd'} onPress={() => radioActions.setStreamMolodesh()}>{'Музыка'}</Button>
+                    <View style={{ flexDirection: 'row'}}>
+                        <Button  mode={!radioStore.stream_type? "contained" : "outlined"} style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }} color={'#3597cd'} onPress={() => radioActions.setStreamGolos()}>{'Прямой эфир'}</Button>
+                        <Button  mode={radioStore.stream_type? "contained" : "outlined"} style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }} color={'#3597cd'} onPress={() => radioActions.setStreamMolodesh()}>{'Музыка'}</Button>
                     </View>
                 </View>
 
