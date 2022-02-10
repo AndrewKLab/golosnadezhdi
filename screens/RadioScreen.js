@@ -50,9 +50,10 @@ const RadioScreen = ({ }) => {
                 <Text style={styles.currentTextTitle}>{radioStore.radio_player && radioStore.radio_player.title}</Text>
 
             </View>
-            <View style={styles.playerFooter}>
+            {/* <View style={styles.playerFooter}>
                 <Button mode="outlined" color={'#00f39b'} onPress={() => openLink('https://golosn.ru/pozhertvovat')}>Пожертвовать</Button>
-            </View>
+            </View> */}
+            
             <View style={styles.playerActions}>
 
                 <IconButton
